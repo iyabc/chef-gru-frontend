@@ -1,4 +1,4 @@
-// from CSV - to be changed
+// from Backend - to be changed
 import type { NERType } from 'lib/types/nerType';
 
 export const NERs: NERType[] = [
