@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
-
+import { RightGroteskCompactBlack } from '@/styles/fonts';
 export const metadata: Metadata = {
   title: 'Chef L-BERT',
   description:
@@ -17,7 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${RightGroteskCompactBlack.variable} font-sans`}
+    >
       <body className={inter.className}>{children}</body>
     </html>
   );
