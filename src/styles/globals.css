@@ -16,3 +16,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+  width: 0.4rem;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0.4rem;
+  background-color: #e7e7e7;
+  border: 1px solid #cacaca;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.4rem;
+  background-color: rgb(167, 167, 167);
+}
