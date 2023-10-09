@@ -1,20 +1,70 @@
-// from Backend - to be changed
+import type { groupedOptionsType } from 'lib/types/groupedNERsType';
 import type { NERType } from 'lib/types/nerType';
 
-export const NERs: NERType[] = [
+export const vegetablesGroup: NERType[] = [
   {
-    name: 'NER 1',
+    value: 'NER 1',
+    label: 'NER 1',
   },
   {
-    name: 'NER 2',
+    value: 'NER 2',
+    label: 'NER 2',
   },
   {
-    name: 'NER 3',
+    value: 'NER 3',
+    label: 'NER 3',
   },
   {
-    name: 'NER 4',
+    value: 'NER 4',
+    label: 'NER 4',
   },
   {
-    name: 'NER 5',
+    value: 'NER 5',
+    label: 'NER 5',
+  },
+];
+
+export const meatGroup: NERType[] = [
+  {
+    value: 'NER 1',
+    label: 'NER 1',
+  },
+  {
+    value: 'NER 2',
+    label: 'NER 2',
+  },
+  {
+    value: 'NER 3',
+    label: 'NER 3',
+  },
+];
+
+export const condimentsGroup: NERType[] = [
+  {
+    value: 'Soy Sauce',
+    label: 'Soy Sauce',
+  },
+  {
+    value: 'Vinegar',
+    label: 'Vinegar',
+  },
+  {
+    value: 'Fish Sauce',
+    label: 'Fish Sauce',
+  },
+];
+
+export const groupedOptions: groupedOptionsType[] = [
+  {
+    label: 'Meat',
+    options: meatGroup,
+  },
+  {
+    label: 'Vegetables',
+    options: vegetablesGroup,
+  },
+  {
+    label: 'Condiments',
+    options: condimentsGroup,
   },
 ];

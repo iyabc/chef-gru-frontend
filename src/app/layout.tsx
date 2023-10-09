@@ -6,7 +6,7 @@ import { inter, rightGroteskCompactBlack } from '@/styles/fonts';
 export const metadata: Metadata = {
   title: 'Chef L-BERT',
   description:
-    'Chef L-BERT is a recipe generation model that combines BLSTM and BERT to generate novel food recipes from ingredients selected by the user.',
+    'CHEF L-BERT is a recipe generation model that combines BLSTM and BERT to generate novel food recipes from ingredients selected by the user.',
 };
 
 export default function RootLayout({

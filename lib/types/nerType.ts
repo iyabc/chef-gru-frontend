@@ -1,4 +1,5 @@
 export type NERType = {
-  name: string;
+  label: string;
+  value: string;
   category?: string;
 };
