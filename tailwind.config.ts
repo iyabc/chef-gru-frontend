@@ -29,18 +29,6 @@ const config: Config = {
         lg: '2rem',
         xl: '3rem',
       },
-      fontFamily: {
-        rightGroteskCompactBlack: ['var(--font-rightGroteskCompactBlack)'],
-        inter: ['var(--font-inter)'],
-      },
-      colors: {
-        Background: '#F7EBDE',
-        Primary: '#F57E00',
-        Secondary: '#F4E1CD',
-        Accent: '#C87D2D',
-        Black: '#0C0803',
-        White: '#EFEFEF',
-      },
     },
     screens: {
       xsm: '384px',
