@@ -1,14 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 
 import '@/styles/globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
-import { RightGroteskCompactBlack } from '@/styles/fonts';
+import { inter, rightGroteskCompactBlack } from '@/styles/fonts';
 export const metadata: Metadata = {
   title: 'Chef L-BERT',
   description:
-    'Chef L-BERT is a recipe generation model that combines BLSTM and BERT to generate novel food recipes from ingredients selected by the user.',
+    'CHEF L-BERT is a recipe generation model that combines BLSTM and BERT to generate novel food recipes from ingredients selected by the user.',
 };
 
 export default function RootLayout({
@@ -19,9 +17,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${RightGroteskCompactBlack.variable} font-sans`}
+      className={`${inter.variable} ${rightGroteskCompactBlack.variable}`}
     >
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} text-black bg-background`}>
+        {children}
+      </body>
     </html>
   );
 }

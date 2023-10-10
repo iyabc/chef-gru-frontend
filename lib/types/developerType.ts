@@ -5,12 +5,11 @@ export type DeveloperType = {
   firstName: string;
   imageSrc: StaticImageData;
   lastName: string;
-  socials: SocialType[];
+  socials: SocialType;
 };
 
 export type SocialType = {
   facebook?: string;
   github?: string;
   linkedin?: string;
-  twitter?: string;
 };
