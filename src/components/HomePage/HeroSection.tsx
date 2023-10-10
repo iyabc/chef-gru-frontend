@@ -29,6 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           <MainButton
             text="Explore"
             variant="secondary-outlined"
+            isButton={true}
             handleOnClick={handleExploreButtonClick}
           />
         </div>
