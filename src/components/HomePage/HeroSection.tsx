@@ -5,7 +5,13 @@ import BERTLogo from 'public/images/BERT Logo.png';
 
 import MainButton from '@/components/ui/MainButton';
 
-const HeroSection = () => {
+type HeroSectionProps = {
+  handleExploreButtonClick: () => void;
+};
+
+const HeroSection: React.FC<HeroSectionProps> = ({
+  handleExploreButtonClick,
+}) => {
   return (
     <section className="container py-10 flex flex-col lg:flex-row justify-center items-center lg:grid-cols-2 h-screen text-center lg:text-start">
       <div className="order-last lg:order-firs w-fit">
@@ -20,7 +26,11 @@ const HeroSection = () => {
           </p>
         </div>
         <div className="mt-5 sm:mt-10 flex justify-center lg:justify-start">
-          <MainButton text="Generate" variant="secondary-outlined" />
+          <MainButton
+            text="Explore"
+            variant="secondary-outlined"
+            handleOnClick={handleExploreButtonClick}
+          />
         </div>
       </div>
       <div className="relative h-1/2 w-full lg:h-4/5 order-first lg:order-last">

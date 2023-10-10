@@ -6,7 +6,7 @@ import type { NERType } from 'lib/types/nerType';
 import IngredientsDropdownMenu from '@/components/ui/IngredientsDropdownMenu';
 import MainButton from '@/components/ui/MainButton';
 
-const ModelSection = () => {
+const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
   const [selectedNERs, setSelectedNERs] = useState<NERType[]>([]);
 
   const handleIngredientsChange = (selectedValues: MultiValue<NERType>) => {
@@ -18,7 +18,10 @@ const ModelSection = () => {
   };
 
   return (
-    <section className="container h-screen flex flex-col justify-center items-center">
+    <section
+      className="container h-screen flex flex-col justify-center items-center"
+      ref={ref}
+    >
       <div className="text-center">
         <h2 className="font-rightGroteskCompactBlack text-4xl xsm:text-5xl sm:text-6xl lg:text-8xl mb-4">
           Give it a try!
@@ -41,6 +44,8 @@ const ModelSection = () => {
       />
     </section>
   );
-};
+});
+
+ModelSection.displayName = 'ModelSection';
 
 export default ModelSection;
