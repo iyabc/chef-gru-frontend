@@ -20,17 +20,18 @@ const buttonVariants = cva(
 );
 
 type ButtonProps = {
+  handleOnClick: () => void;
   text: string;
   variant: string;
 } & VariantProps<typeof buttonVariants>;
 
-const MainButton: FC<ButtonProps> = ({ text, variant }) => {
+const MainButton: FC<ButtonProps> = ({ text, variant, handleOnClick }) => {
   return (
-    <div className={buttonVariants({ variant })}>
+    <button className={buttonVariants({ variant })} onClick={handleOnClick}>
       <p className="capitalize font-bold text-sm md:text-base lg:text-lg">
         {text}
       </p>
-    </div>
+    </button>
   );
 };
 
