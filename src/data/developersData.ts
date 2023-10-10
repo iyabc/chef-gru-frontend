@@ -1,9 +1,11 @@
 import type { DeveloperType } from 'lib/types/developerType';
+import BungagImgSrc from 'public/Devs/bungag.jpg';
 import PanesImgSrc from 'public/Devs/panes.jpg';
+import TanImgSrc from 'public/Devs/tan.jpg';
 
 export const Developers: DeveloperType[] = [
   {
-    imageSrc: PanesImgSrc,
+    imageSrc: BungagImgSrc,
     email: 'viverbungag1@gmail.com',
     firstName: 'Viver Val',
     lastName: 'Bungag',
@@ -25,7 +27,7 @@ export const Developers: DeveloperType[] = [
     },
   },
   {
-    imageSrc: PanesImgSrc,
+    imageSrc: TanImgSrc,
     email: 'jayinnhahn@gmail.com',
     firstName: 'Jay Innhahn',
     lastName: 'Tan',
