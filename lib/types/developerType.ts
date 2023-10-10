@@ -12,5 +12,4 @@ export type SocialType = {
   facebook?: string;
   github?: string;
   linkedin?: string;
-  twitter?: string;
 };
