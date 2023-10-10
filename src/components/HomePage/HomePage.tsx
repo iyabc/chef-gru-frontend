@@ -25,13 +25,17 @@ const HomePage = () => {
           selectedValues={selectedNERs}
           onValuesChange={handleValuesChange}
         />
-        <MainButton text="Generate" />
       </div>
       <div>
         <NavigationBar sectionRef={sectionsRef} />
         <div ref={sectionsRef}>
           {/* insert sections here */}
-          <section className="bg-primary h-screen">Section</section>
+          <section className="bg-primary h-screen flex justify-center items-center flex-col space-y-2">
+            Buttons
+            <MainButton text="Generate" variant="secondary-outlined" />
+            <MainButton text="Generate" variant="primary-outlined" />
+            <MainButton text="Generate" variant="primary-white-outlined" />
+          </section>
           <section className="bg-accent h-screen">Section</section>
         </div>
       </div>
