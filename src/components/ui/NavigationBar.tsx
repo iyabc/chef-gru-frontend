@@ -17,23 +17,28 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ sectionRef }) => {
       (entries) => {
         const [entry] = entries;
         setAreSectionsVisible(entry.isIntersecting);
+        console.log('is intersecting: ', entry.isIntersecting);
       },
       {
-        threshold: 0.5,
+        threshold: 0.1,
       }
     );
 
-    observer.observe(sectionRef.current!);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
     return () => {
-      observer.unobserve(sectionRef.current!);
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
     };
   }, []);
 
   return (
     <nav
       className={cn(
-        'fixed top-0 w-full flex justify-center py-4 duration-300 ease-in-out',
+        'sticky top-0 w-full flex justify-center py-4 duration-300 ease-in-out z-50',
         {
           'opacity-100 translate-y-0': areSectionsVisible,
           'opacity-0 -translate-y-3': !areSectionsVisible,

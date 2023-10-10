@@ -4,9 +4,7 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  [
-    'w-fit h-fit border-[3px] py-2 px-8 rounded-full hover:scale-95 duration-300 ease-in-out cursor-pointer',
-  ],
+  ['w-fit h-fit border-[3px] py-2 px-8 rounded-full'],
   {
     variants: {
       variant: {
@@ -15,20 +13,33 @@ const buttonVariants = cva(
           'bg-primary border-background text-background',
         'secondary-outlined': 'bg-secondary border-primary text-primary',
       },
+      isButton: {
+        true: 'hover:scale-95 duration-300 ease-in-out cursor-pointer',
+        false: 'cursor-default',
+      },
     },
   }
 );
 
 type ButtonProps = {
-  handleOnClick: () => void;
+  isButton: boolean;
   text: string;
   variant: string;
+  handleOnClick?: () => void;
 } & VariantProps<typeof buttonVariants>;
 
-const MainButton: FC<ButtonProps> = ({ text, variant, handleOnClick }) => {
+const MainButton: FC<ButtonProps> = ({
+  text,
+  variant,
+  isButton,
+  handleOnClick,
+}) => {
   return (
-    <button className={buttonVariants({ variant })} onClick={handleOnClick}>
-      <p className="capitalize font-bold text-sm md:text-base lg:text-lg">
+    <button
+      className={buttonVariants({ variant, isButton })}
+      onClick={handleOnClick}
+    >
+      <p className="capitalize font-bold text-xs sm:text-sm md:text-base lg:text-lg">
         {text}
       </p>
     </button>

@@ -40,6 +40,7 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
       <MainButton
         text="Generate"
         variant="secondary-outlined"
+        isButton={true}
         handleOnClick={handleGenerateButtonOnClick}
       />
     </section>
