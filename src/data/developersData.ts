@@ -9,10 +9,9 @@ export const Developers: DeveloperType[] = [
     lastName: 'Bungag',
     socials: [
       {
-        facebook: '',
-        github: '',
-        linkedin: '',
-        twitter: '',
+        facebook: 'https://www.facebook.com/buboy1',
+        github: 'https://github.com/viverbungag',
+        linkedin: 'https://www.linkedin.com/in/viver-bungag-958364215/',
       },
     ],
   },
@@ -23,6 +22,7 @@ export const Developers: DeveloperType[] = [
     lastName: 'Panes',
     socials: [
       {
+        facebook: 'https://www.facebook.com/jayinnhahn',
         github: 'https://github.com/iyabc/',
         linkedin:
           'https://www.linkedin.com/in/julienne-andrea-panes-99456024a/',
@@ -36,10 +36,9 @@ export const Developers: DeveloperType[] = [
     lastName: 'Tan',
     socials: [
       {
-        facebook: '',
-        github: '',
-        linkedin: '',
-        twitter: '',
+        facebook: 'https://www.facebook.com/jayinnhahn',
+        github: 'https://github.com/jayinnhahn',
+        linkedin: 'https://www.linkedin.com/in/jayinnhahn/',
       },
     ],
   },
