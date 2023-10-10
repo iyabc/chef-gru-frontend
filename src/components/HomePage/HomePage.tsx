@@ -37,7 +37,7 @@ const HomePage = () => {
             <div className="container py-20">
               {projectDetails.map(
                 (project: ProjectDetailsType, index: number) => (
-                  <div className="my-16">
+                  <div className="my-16" key={index}>
                     <ProjectDetailCard
                       title={project.title}
                       body={project.body}

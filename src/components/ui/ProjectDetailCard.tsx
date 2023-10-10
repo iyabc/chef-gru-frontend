@@ -14,7 +14,7 @@ const ProjectDetailCard: React.FC<ProjectDetailCardProps> = ({
   imageUrl,
 }) => {
   return (
-    <div className="grid justify-between items-center grid-cols-1 lg:grid-cols-2 text-white">
+    <div className="grid justify-between items-center grid-cols-1 lg:grid-cols-2 text-background">
       <div className="mb-9 lg:mr-16">
         <p className="font-rightGroteskCompactBlack text-2xl lg:text-4xl font-medium uppercase mb-3">
           {title}

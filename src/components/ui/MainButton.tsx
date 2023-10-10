@@ -15,7 +15,7 @@ const buttonVariants = cva(
       },
       isButton: {
         true: 'hover:scale-95 duration-300 ease-in-out cursor-pointer',
-        false: 'cursor-default',
+        false: 'cursor-default uppercase',
       },
     },
   }
@@ -39,7 +39,7 @@ const MainButton: FC<ButtonProps> = ({
       className={buttonVariants({ variant, isButton })}
       onClick={handleOnClick}
     >
-      <p className="capitalize font-bold text-xs sm:text-sm md:text-base lg:text-lg">
+      <p className="font-black text-xs sm:text-sm md:text-base lg:text-lg">
         {text}
       </p>
     </button>

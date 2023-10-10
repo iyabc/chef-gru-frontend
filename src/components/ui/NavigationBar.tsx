@@ -17,21 +17,16 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ sectionRef }) => {
       (entries) => {
         const [entry] = entries;
         setAreSectionsVisible(entry.isIntersecting);
-        console.log('is intersecting: ', entry.isIntersecting);
       },
       {
         threshold: 0.1,
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    observer.observe(sectionRef.current!);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      observer.unobserve(sectionRef?.current!);
     };
   }, []);
 
