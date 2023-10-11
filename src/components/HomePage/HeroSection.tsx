@@ -4,7 +4,7 @@ import Image from 'next/image';
 import BERTLogo from 'public/images/BERT Logo.png';
 
 import MainButton from '@/components/ui/MainButton';
-
+import Divider from '../ui/Divider';
 type HeroSectionProps = {
   handleExploreButtonClick: () => void;
 };
