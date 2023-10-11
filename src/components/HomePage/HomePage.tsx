@@ -26,7 +26,7 @@ const HomePage = () => {
         text="Elevate Your Cooking Game with Novel Recipes at Your Fingertips! Harness the Power of Artificial Intelligence to Craft Unique Dishes Tailored to Your Taste Buds. Experience a Revolution in Recipe Generation!"
         color="Yellow"
       />
-      <div>
+      <div className="w-full">
         <NavigationBar sectionRef={sectionsRef} />
         <div ref={sectionsRef}>
           <ModelSection ref={modelSectionRef} />

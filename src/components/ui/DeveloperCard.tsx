@@ -53,22 +53,21 @@ const DeveloperCard = ({ developer }: { developer: DeveloperType }) => {
     },
   ];
   return (
-    <div className="mb-10 w-full py-[1.88rem] px-[2.11rem] text-center flex flex-col justify-center items-center border-2">
-      <div className="flex overflow-y-hidden select-none relative w-[24rem] h-[24rem] rounded-[5rem]">
+    <div className="mb-10 w-full py-[1.88rem] px-[2.11rem] text-center flex flex-col justify-center items-center">
+      <div className="flex overflow-y-hidden select-none relative h-[26rem] max-w-[26rem] rounded-[5rem]">
         <Image
           src={developer.imageSrc}
           alt={developer.lastName}
           className="object-cover"
           placeholder="blur"
           draggable={false}
-          fill
         />
       </div>
       <p className="text-[1.5625rem] text-Black font-bold uppercase">
         {developer.firstName} {developer.lastName}
       </p>
       <div className="flex justify-center">
-        <div className="grid grid-flow-col w-fit  text-Black">
+        <div className="grid grid-flow-col w-fit text-Black">
           {socialIconsData.map((iconData, index) => (
             <a href={iconData.url} key={index} aria-label={iconData.label}>
               {renderIcon(iconData.label)}
