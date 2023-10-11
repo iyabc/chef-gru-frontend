@@ -18,7 +18,7 @@ const ProjectDetailSection = () => {
         />
       </TitleHeader>
 
-      <div className="container py-20">
+      <div className="container">
         {projectDetails.map((project: ProjectDetailsType, index: number) => (
           <div className="my-16" key={index}>
             <ProjectDetailCard

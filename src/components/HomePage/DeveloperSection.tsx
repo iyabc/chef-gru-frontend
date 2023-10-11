@@ -9,7 +9,7 @@ import { Developers } from '@/data/developersData';
 
 const DeveloperSection = () => {
   return (
-    <section className="bg-background py-32">
+    <section className="container bg-background py-32">
       <TitleHeader text="Team Members" textColor="black">
         <MainButton
           text="Who we are"
@@ -17,10 +17,10 @@ const DeveloperSection = () => {
           isButton={false}
         />
       </TitleHeader>
-      <div className="flex flex-col justify-center lg:flex-row ">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-center items-center my-16">
         {Developers.map((developer: DeveloperType, index: number) => {
           return (
-            <div key={index}>
+            <div className="my-3 lg:mx-3" key={index}>
               <DeveloperCard developer={developer} />
             </div>
           );

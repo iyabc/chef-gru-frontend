@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import type { DeveloperType } from 'lib/types/developerType';
 
-function renderIcon(socialName: string) {
+const renderIcon = (socialName: string) => {
   switch (socialName.toUpperCase()) {
     case 'FACEBOOK':
       return (
@@ -36,7 +36,8 @@ function renderIcon(socialName: string) {
     default:
       throw 'NotFound';
   }
-}
+};
+
 const DeveloperCard = ({ developer }: { developer: DeveloperType }) => {
   const socialIconsData = [
     {
@@ -52,29 +53,27 @@ const DeveloperCard = ({ developer }: { developer: DeveloperType }) => {
       label: 'Github',
     },
   ];
+
   return (
-    <div className="mb-10 w-full py-[1.88rem] px-[2.11rem] text-center flex flex-col justify-center items-center">
-      <div className="flex overflow-y-hidden select-none relative w-[26rem] h-[26rem] rounded-[5rem]">
+    <div className="w-full text-center flex flex-col justify-center items-center">
+      <div className="select-none overflow-hidden relative w-32 h-32 sm:w-40 sm:h-40 lg:w-60 lg:h-60 rounded-2xl">
         <Image
           src={developer.imageSrc}
           alt={developer.lastName}
-          className="object-cover"
+          className="object-cover h-full w-full"
           placeholder="blur"
           draggable={false}
-          fill
         />
       </div>
-      <p className="text-[1.5625rem] text-Black font-bold uppercase">
+      <p className="lg:text-xl font-semibold capitalize my-4">
         {developer.firstName} {developer.lastName}
       </p>
-      <div className="flex justify-center">
-        <div className="grid grid-flow-col w-fit  text-Black">
-          {socialIconsData.map((iconData, index) => (
-            <a href={iconData.url} key={index} aria-label={iconData.label}>
-              {renderIcon(iconData.label)}
-            </a>
-          ))}
-        </div>
+      <div className="grid grid-cols-3 gap-1">
+        {socialIconsData.map((iconData, index) => (
+          <a href={iconData.url} key={index} aria-label={iconData.label}>
+            {renderIcon(iconData.label)}
+          </a>
+        ))}
       </div>
     </div>
   );

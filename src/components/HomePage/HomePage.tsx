@@ -6,10 +6,10 @@ import HeroSection from '@/components/HomePage/HeroSection';
 import ModelSection from '@/components/HomePage/ModelSection';
 import NavigationBar from '@/components/ui/NavigationBar';
 
-import Divider from '../ui/Divider';
-import DeveloperSection from './DeveloperSection';
-import Footer from '../ui/Footer';
-import ProjectDetailSection from './ProjectDetailSection';
+import Divider from '@/components/ui/Divider';
+import DeveloperSection from '@/components/HomePage/DeveloperSection';
+import Footer from '@/components/ui/Footer';
+import ProjectDetailSection from '@/components/HomePage/ProjectDetailSection';
 const HomePage = () => {
   const sectionsRef = useRef(null);
   const modelSectionRef = useRef<HTMLDivElement>(null);
