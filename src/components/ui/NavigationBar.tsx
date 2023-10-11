@@ -1,49 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
+import { motion, useInView } from 'framer-motion';
 import BERTLogo from 'public/images/BERT Logo.png';
 
-import { cn } from '@/utils/cvaUtils';
-
 type NavigationBarProps = {
-  sectionRef: React.RefObject<HTMLDivElement>;
+  viewRef: React.RefObject<HTMLDivElement>;
 };
 
-const NavigationBar: React.FC<NavigationBarProps> = ({ sectionRef }) => {
-  const [areSectionsVisible, setAreSectionsVisible] = useState(false);
+const navigationBarVariants = {
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.2 } },
+  hidden: { opacity: 0, scale: 0 },
+};
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        setAreSectionsVisible(entry.isIntersecting);
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    observer.observe(sectionRef.current!);
-
-    return () => {
-      observer.unobserve(sectionRef?.current!);
-    };
-  }, []);
+const NavigationBar: React.FC<NavigationBarProps> = ({ viewRef }) => {
+  const inView = useInView(viewRef);
 
   return (
-    <nav
-      className={cn(
-        'sticky top-0 w-full flex justify-center py-4 duration-300 ease-in-out z-50',
-        {
-          'opacity-100 translate-y-0': areSectionsVisible,
-          'opacity-0 -translate-y-3': !areSectionsVisible,
-        }
-      )}
+    <motion.div
+      ref={viewRef}
+      animate={inView ? 'visible' : 'hidden'}
+      initial="hidden"
+      variants={navigationBarVariants}
+      className="fixed top-0 w-full flex justify-center py-4 duration-300 ease-in-out z-50"
     >
       <button className="relative w-16 h-16">
         <Image src={BERTLogo} alt="BERTLogo" className="object-contain" fill />
       </button>
-    </nav>
+    </motion.div>
   );
 };
 

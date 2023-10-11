@@ -1,10 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
 
+import { motion } from 'framer-motion';
 import BERTLogo from 'public/images/BERT Logo.png';
 
+import {
+  firstQuickFadeInVariants,
+  secondQuickFadeInVariants,
+  thirdQuickFadeInVariants,
+} from '@/animations/fadeIn';
 import MainButton from '@/components/ui/MainButton';
-import Divider from '../ui/Divider';
+
 type HeroSectionProps = {
   handleExploreButtonClick: () => void;
 };
@@ -15,26 +21,47 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section className="container py-10 flex flex-col lg:flex-row justify-center items-center lg:grid-cols-2 h-screen text-center lg:text-start">
       <div className="order-last lg:order-firs w-fit">
-        <div>
+        <motion.div
+          variants={firstQuickFadeInVariants}
+          initial="initial"
+          animate="animate"
+        >
           <h1 className="font-rightGroteskCompactBlack mb-4 mt-7 text-3xl sm:text-4xl md:text-5xl lg:text-7xl">
             Don&apos;t know what to cook?
           </h1>
+        </motion.div>
+        <motion.div
+          variants={secondQuickFadeInVariants}
+          initial="initial"
+          animate="animate"
+        >
           <p className="text-sm sm:text-base">
             Let <span className="font-bold">CHEF L-BERT</span> do the thinking!
             Just input your ingredients and we&apos;ll try and provide you with
             a recipe to follow.
           </p>
-        </div>
-        <div className="mt-5 sm:mt-10 flex justify-center lg:justify-start">
+        </motion.div>
+
+        <motion.div
+          variants={thirdQuickFadeInVariants}
+          initial="initial"
+          animate="animate"
+          className="mt-5 sm:mt-10 flex justify-center lg:justify-start"
+        >
           <MainButton
             text="Explore"
             variant="secondary-outlined"
             isButton={true}
             handleOnClick={handleExploreButtonClick}
           />
-        </div>
+        </motion.div>
       </div>
-      <div className="relative h-1/2 w-full lg:h-4/5 order-first lg:order-last">
+      <motion.div
+        variants={secondQuickFadeInVariants}
+        initial="initial"
+        animate="animate"
+        className="relative h-1/2 w-full lg:h-4/5 order-first lg:order-last"
+      >
         <Image
           src={BERTLogo}
           alt="BERTLogo"
@@ -42,7 +69,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           draggable={false}
           placeholder="blur"
         />
-      </div>
+      </motion.div>
     </section>
   );
 };
