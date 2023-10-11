@@ -5,14 +5,11 @@ import { useRef } from 'react';
 import HeroSection from '@/components/HomePage/HeroSection';
 import ModelSection from '@/components/HomePage/ModelSection';
 import NavigationBar from '@/components/ui/NavigationBar';
-import TitleHeader from '../ui/TitleHeader';
-import MainButton from '../ui/MainButton';
-import { projectDetails } from '@/data/projectDetailsData';
-import { ProjectDetailsType } from 'lib/types/projectDetailsType';
-import ProjectDetailCard from '../ui/ProjectDetailCard';
+
 import Divider from '../ui/Divider';
 import DeveloperSection from './DeveloperSection';
 
+import ProjectDetailSection from './ProjectDetailSection';
 const HomePage = () => {
   const sectionsRef = useRef(null);
   const modelSectionRef = useRef<HTMLDivElement | null>(null);
@@ -38,30 +35,8 @@ const HomePage = () => {
         text="Explore our project's journey from data prep to model training, unveiling the magic of generating unique recipes. Witness how our AI crafts delectable dishes, putting culinary creativity at your fingertips!"
         color="Black"
       />
-          <section className="bg-primary py-32">
-            <TitleHeader text="Project Details" textColor="white">
-              <MainButton
-                text="What we did"
-                variant="primary-white-outlined"
-                isButton={false}
-              />
-            </TitleHeader>
-            
-            <div className="container py-20">
-              {projectDetails.map(
-                (project: ProjectDetailsType, index: number) => (
-                  <div className="my-16" key={index}>
-                    <ProjectDetailCard
-                      title={project.title}
-                      body={project.body}
-                      imageUrl={project.imageUrl}
-                    />
-                  </div>
-                )
-              )}
-            </div>
-          </section>
-          <DeveloperSection/>
+        <ProjectDetailSection/>
+        <DeveloperSection/>
         </div>
       </div>
     </div>

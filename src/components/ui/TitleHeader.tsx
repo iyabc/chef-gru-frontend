@@ -26,7 +26,7 @@ const TitleHeader: React.FC<TitleHeaderProps> = ({
   return (
     <div className={titleHeaderVariants({ textColor })}>
       <div className="mb-2 lg:mb-1">{children}</div>
-      <p className="font-rightGroteskCompactBlack uppercase text-4xl xsm:text-5xl sm:text-6xl lg:text-8xl ">
+      <p className="font-rightGroteskCompactBlack uppercase text-4xl xsm:text-5xl sm:text-6xl lg:text-8xl">
         {text}
       </p>
     </div>

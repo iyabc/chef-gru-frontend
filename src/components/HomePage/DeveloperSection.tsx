@@ -7,7 +7,7 @@ import { Developers } from '@/data/developersData';
 
 const DeveloperSection = () => {
   return (
-    <section className="bg-background flex justify-center items-center flex-col h-screen">
+    <section className="bg-background py-32">
 `       <TitleHeader text="Team Members" textColor="black">
             <MainButton
                 text="Who we are"
@@ -15,7 +15,7 @@ const DeveloperSection = () => {
                 isButton={false}
             />
         </TitleHeader>`
-        <div className="flex flex-col justify-center lg:flex-row">
+        <div className="flex flex-col justify-center lg:flex-row ">
             {Developers.map((developer: DeveloperType, index: number) => {
                 return (
                 <div key={index}>
