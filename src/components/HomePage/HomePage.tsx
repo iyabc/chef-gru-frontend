@@ -12,7 +12,7 @@ import { ProjectDetailsType } from 'lib/types/projectDetailsType';
 import ProjectDetailCard from '../ui/ProjectDetailCard';
 import Divider from '../ui/Divider';
 import type { DeveloperType } from 'lib/types/developerType';
-
+import ProjectDetailSection from './ProjectDetailSection';
 import DeveloperCard from '@/components/ui/DeveloperCard';
 import { Developers } from '@/data/developersData';
 const HomePage = () => {
@@ -40,29 +40,7 @@ const HomePage = () => {
         text="Explore our project's journey from data prep to model training, unveiling the magic of generating unique recipes. Witness how our AI crafts delectable dishes, putting culinary creativity at your fingertips!"
         color="Black"
       />
-          <section className="bg-primary py-32">
-            <TitleHeader text="Project Details" textColor="white">
-              <MainButton
-                text="What we did"
-                variant="primary-white-outlined"
-                isButton={false}
-              />
-            </TitleHeader>
-            
-            <div className="container py-20">
-              {projectDetails.map(
-                (project: ProjectDetailsType, index: number) => (
-                  <div className="my-16" key={index}>
-                    <ProjectDetailCard
-                      title={project.title}
-                      body={project.body}
-                      imageUrl={project.imageUrl}
-                    />
-                  </div>
-                )
-              )}
-            </div>
-          </section>
+        <ProjectDetailSection/>
         
           <section className="h-screen bg-background py-32">
             <TitleHeader text="Team Members" textColor="black">
