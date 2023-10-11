@@ -5,16 +5,11 @@ import { useRef } from 'react';
 import HeroSection from '@/components/HomePage/HeroSection';
 import ModelSection from '@/components/HomePage/ModelSection';
 import NavigationBar from '@/components/ui/NavigationBar';
-import TitleHeader from '../ui/TitleHeader';
-import MainButton from '../ui/MainButton';
-import { projectDetails } from '@/data/projectDetailsData';
-import { ProjectDetailsType } from 'lib/types/projectDetailsType';
-import ProjectDetailCard from '../ui/ProjectDetailCard';
+
 import Divider from '../ui/Divider';
-import type { DeveloperType } from 'lib/types/developerType';
+import DeveloperSection from './DeveloperSection';
+
 import ProjectDetailSection from './ProjectDetailSection';
-import DeveloperCard from '@/components/ui/DeveloperCard';
-import { Developers } from '@/data/developersData';
 const HomePage = () => {
   const sectionsRef = useRef(null);
   const modelSectionRef = useRef<HTMLDivElement | null>(null);
@@ -41,25 +36,7 @@ const HomePage = () => {
         color="Black"
       />
         <ProjectDetailSection/>
-        
-          <section className="h-screen bg-background py-32">
-            <TitleHeader text="Team Members" textColor="black">
-              <MainButton
-                text="Who we are"
-                variant="primary-outlined"
-                isButton={false}
-              />
-            </TitleHeader>
-            <div className="flex flex-col justify-center lg:flex-row">
-              {Developers.map((developer: DeveloperType, index: number) => {
-                return (
-                  <div key={index}>
-                    <DeveloperCard developer={developer} />
-                  </div>
-                );
-              })}
-            </div>
-          </section>
+        <DeveloperSection/>
         </div>
       </div>
     </div>

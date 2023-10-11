@@ -53,8 +53,8 @@ const DeveloperCard = ({ developer }: { developer: DeveloperType }) => {
     },
   ];
   return (
-    <div className="mb-10 w-full py-[1.88rem] px-[2.11rem] text-center flex flex-col">
-      <div className="overflow-y-hidden select-none	relative w-[26rem] h-[26rem] rounded-[5rem]">
+    <div className="mb-10 w-full py-[1.88rem] px-[2.11rem] text-center flex flex-col justify-center items-center">
+      <div className="flex overflow-y-hidden select-none relative w-[26rem] h-[26rem] rounded-[5rem]">
         <Image
           src={developer.imageSrc}
           alt={developer.lastName}
