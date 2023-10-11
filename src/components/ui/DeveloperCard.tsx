@@ -54,7 +54,7 @@ const DeveloperCard = ({ developer }: { developer: DeveloperType }) => {
   ];
   return (
     <div className="mb-10 w-full py-[1.88rem] px-[2.11rem] text-center flex flex-col justify-center items-center">
-      <div className="flex overflow-y-hidden select-none relative h-[26rem] max-w-[26rem] rounded-[5rem]">
+      <div className="flex overflow-y-hidden select-none relative max-h-[26rem] max-w-[26rem] rounded-[5rem]">
         <Image
           src={developer.imageSrc}
           alt={developer.lastName}
