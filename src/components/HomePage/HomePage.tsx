@@ -6,10 +6,10 @@ import HeroSection from '@/components/HomePage/HeroSection';
 import ModelSection from '@/components/HomePage/ModelSection';
 import NavigationBar from '@/components/ui/NavigationBar';
 
-import Divider from '../ui/Divider';
-import DeveloperSection from './DeveloperSection';
-import Footer from '../ui/Footer';
-import ProjectDetailSection from './ProjectDetailSection';
+import Divider from '@/components/ui/Divider';
+import DeveloperSection from '@/components/HomePage/DeveloperSection';
+import Footer from '@/components/ui/Footer';
+import ProjectDetailSection from '@/components/HomePage/ProjectDetailSection';
 const HomePage = () => {
   const sectionsRef = useRef(null);
   const modelSectionRef = useRef<HTMLDivElement | null>(null);
@@ -31,15 +31,15 @@ const HomePage = () => {
         <div ref={sectionsRef}>
           <ModelSection ref={modelSectionRef} />
           <Divider
-        title="Recipe Generation: Unveiling the Process"
-        text="Explore our project's journey from data prep to model training, unveiling the magic of generating unique recipes. Witness how our AI crafts delectable dishes, putting culinary creativity at your fingertips!"
-        color="Black"
-      />
-        <ProjectDetailSection/>
-        <DeveloperSection/>
+            title="Recipe Generation: Unveiling the Process"
+            text="Explore our project's journey from data prep to model training, unveiling the magic of generating unique recipes. Witness how our AI crafts delectable dishes, putting culinary creativity at your fingertips!"
+            color="Black"
+          />
+          <ProjectDetailSection />
+          <DeveloperSection />
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
