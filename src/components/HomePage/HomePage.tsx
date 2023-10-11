@@ -8,7 +8,7 @@ import NavigationBar from '@/components/ui/NavigationBar';
 
 import Divider from '../ui/Divider';
 import DeveloperSection from './DeveloperSection';
-
+import Footer from '../ui/Footer';
 import ProjectDetailSection from './ProjectDetailSection';
 const HomePage = () => {
   const sectionsRef = useRef(null);
@@ -39,6 +39,7 @@ const HomePage = () => {
         <DeveloperSection/>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
