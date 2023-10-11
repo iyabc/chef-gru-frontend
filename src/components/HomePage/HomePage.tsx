@@ -12,7 +12,7 @@ import { ProjectDetailsType } from 'lib/types/projectDetailsType';
 import ProjectDetailCard from '../ui/ProjectDetailCard';
 import Divider from '../ui/Divider';
 import type { DeveloperType } from 'lib/types/developerType';
-
+import Footer from '../ui/Footer';
 import DeveloperCard from '@/components/ui/DeveloperCard';
 import { Developers } from '@/data/developersData';
 const HomePage = () => {
@@ -72,7 +72,7 @@ const HomePage = () => {
                 isButton={false}
               />
             </TitleHeader>
-            <div className="flex flex-col justify-center lg:flex-row">
+            <div className="flex flex-col items-center justify-center lg:flex-row">
               {Developers.map((developer: DeveloperType, index: number) => {
                 return (
                   <div key={index}>
@@ -84,6 +84,7 @@ const HomePage = () => {
           </section>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
