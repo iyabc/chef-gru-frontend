@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import BERTLogo from 'public/images/BERT Logo.png';
 
 import {
-  firstQuickFadeInVariants,
-  secondQuickFadeInVariants,
-  thirdQuickFadeInVariants,
+  firstQuickVerticalFadeInVariants,
+  secondQuickVerticalFadeInVariants,
+  thirdQuickVerticalFadeInVariants,
 } from '@/animations/fadeIn';
 import MainButton from '@/components/ui/MainButton';
 
@@ -22,7 +22,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     <section className="container py-10 flex flex-col lg:flex-row justify-center items-center lg:grid-cols-2 h-screen text-center lg:text-start">
       <div className="order-last lg:order-firs w-fit">
         <motion.div
-          variants={firstQuickFadeInVariants}
+          variants={firstQuickVerticalFadeInVariants}
           initial="initial"
           animate="animate"
         >
@@ -31,7 +31,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </h1>
         </motion.div>
         <motion.div
-          variants={secondQuickFadeInVariants}
+          variants={secondQuickVerticalFadeInVariants}
           initial="initial"
           animate="animate"
         >
@@ -43,7 +43,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         </motion.div>
 
         <motion.div
-          variants={thirdQuickFadeInVariants}
+          variants={thirdQuickVerticalFadeInVariants}
           initial="initial"
           animate="animate"
           className="mt-5 sm:mt-10 flex justify-center lg:justify-start"
@@ -57,7 +57,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         </motion.div>
       </div>
       <motion.div
-        variants={secondQuickFadeInVariants}
+        variants={secondQuickVerticalFadeInVariants}
         initial="initial"
         animate="animate"
         className="relative h-1/2 w-full lg:h-4/5 order-first lg:order-last"
