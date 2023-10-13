@@ -1,3 +1,4 @@
+import type { FC } from 'react';
 import React from 'react';
 import Image from 'next/image';
 
@@ -15,12 +16,10 @@ type HeroSectionProps = {
   handleExploreButtonClick: () => void;
 };
 
-const HeroSection: React.FC<HeroSectionProps> = ({
-  handleExploreButtonClick,
-}) => {
+const HeroSection: FC<HeroSectionProps> = ({ handleExploreButtonClick }) => {
   return (
-    <section className="container py-10 flex flex-col lg:flex-row justify-center items-center lg:grid-cols-2 h-screen text-center lg:text-start">
-      <div className="order-last lg:order-firs w-fit">
+    <div className="container text-center lg:text-start grid grid-cols-1 lg:grid-cols-2">
+      <div className="order-last lg:order-first w-fit">
         <motion.div
           variants={firstQuickVerticalFadeInVariants}
           initial="initial"
@@ -60,17 +59,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         variants={secondQuickVerticalFadeInVariants}
         initial="initial"
         animate="animate"
-        className="relative h-1/2 w-full lg:h-4/5 order-first lg:order-last"
+        className="relative h-full w-full order-first lg:order-last"
       >
         <Image
           src={BERTLogo}
           alt="BERTLogo"
-          className="object-contain w-full h-full absolute top-0 left-0"
+          className="object-contain w-full h-full absolute"
           draggable={false}
           placeholder="blur"
         />
       </motion.div>
-    </section>
+    </div>
   );
 };
 

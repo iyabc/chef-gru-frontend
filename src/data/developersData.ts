@@ -3,7 +3,7 @@ import BungagImgSrc from 'public/Devs/bungag.jpg';
 import PanesImgSrc from 'public/Devs/panes.jpg';
 import TanImgSrc from 'public/Devs/tan.jpg';
 
-export const Developers: DeveloperType[] = [
+export const developers: DeveloperType[] = [
   {
     imageSrc: BungagImgSrc,
     email: 'viverbungag1@gmail.com',

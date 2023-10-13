@@ -7,31 +7,13 @@ import type { DeveloperType } from 'lib/types/developerType';
 const renderIcon = (socialName: string) => {
   switch (socialName.toUpperCase()) {
     case 'FACEBOOK':
-      return (
-        <FaFacebookSquare
-          className={
-            'w-[2rem] h-[2rem] hover:-translate-y-0.5 transition duration-150 ease-out active:ease-in'
-          }
-        />
-      );
+      return <FaFacebookSquare className="w-full h-full" />;
 
     case 'LINKEDIN':
-      return (
-        <FaLinkedin
-          className={
-            'w-[2rem] h-[2rem] hover:-translate-y-0.5 transition duration-150 ease-out active:ease-in'
-          }
-        />
-      );
+      return <FaLinkedin className="w-full h-full object-cover" />;
 
     case 'GITHUB':
-      return (
-        <FaGithubSquare
-          className={
-            'w-[2rem] h-[2rem] hover:-translate-y-0.5 transition duration-150 ease-out active:ease-in'
-          }
-        />
-      );
+      return <FaGithubSquare className="w-full h-full object-cover" />;
 
     default:
       throw 'NotFound';
@@ -65,12 +47,17 @@ const DeveloperCard = ({ developer }: { developer: DeveloperType }) => {
           draggable={false}
         />
       </div>
-      <p className="lg:text-xl font-semibold capitalize my-4">
+      <p className="lg:text-xl font-semibold capitalize mt-4 mb-1">
         {developer.firstName} {developer.lastName}
       </p>
       <div className="grid grid-cols-3 gap-1">
         {socialIconsData.map((iconData, index) => (
-          <a href={iconData.url} key={index} aria-label={iconData.label}>
+          <a
+            href={iconData.url}
+            key={index}
+            aria-label={iconData.label}
+            className="w-5 sm:w-6 lg:w-8 hover:-translate-y-0.5 transition duration-150 ease-out active:ease-in"
+          >
             {renderIcon(iconData.label)}
           </a>
         ))}
