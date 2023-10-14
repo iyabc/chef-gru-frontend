@@ -3,16 +3,16 @@ import type { NERType } from 'lib/types/nerType';
 
 export const vegetablesGroup: NERType[] = [
   {
-    value: 'NER 1',
-    label: 'NER 1',
+    value: 'beef',
+    label: 'beef',
   },
   {
-    value: 'NER 2',
-    label: 'NER 2',
+    value: 'chicken breast',
+    label: 'chicken breast',
   },
   {
-    value: 'NER 3',
-    label: 'NER 3',
+    value: 'sour cream of mushroom soup',
+    label: 'sour cream of mushroom soup',
   },
   {
     value: 'NER 4',

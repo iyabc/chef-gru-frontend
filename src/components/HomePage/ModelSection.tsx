@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
 import type { MultiValue } from 'react-select';
-import * as Dialog from '@radix-ui/react-dialog';
-
 import { motion, useInView } from 'framer-motion';
 import type { NERType } from 'lib/types/nerType';
 import ResultsModal from '@/components/ui/ResultsModal';
 import IngredientsDropdownMenu from '@/components/ui/IngredientsDropdownMenu';
 import MainButton from '@/components/ui/MainButton';
 import { firstSlowFadeInVariants } from '@/animations/fadeIn';
+import { getPrediction } from '@/utils/apiUtils';
+import { extract_sections } from '@/utils/textUtils';
+import { OutputType } from 'lib/types/outputType';
 
 const buttonVariant = {
   bounce: {
@@ -24,7 +25,14 @@ const buttonVariant = {
 
 const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
   const [selectedNERs, setSelectedNERs] = useState<NERType[]>([]);
+  const [output, setOutput] = useState<OutputType>({
+    title: '',
+    ingredients: [''],
+    instructions: [''],
+    ner_tags: [''],
+  });
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -39,8 +47,25 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
     setSelectedNERs(selectedValues as NERType[]);
   };
 
-  const handleGenerateButtonOnClick = () => {
-    setIsModalOpen(true);
+  const handleGenerateButtonOnClick = async () => {
+    let nerString = '<RECIPE_START> <NER_START>';
+    selectedNERs.map((ner: NERType, index: number) => {
+      if (index === selectedNERs.length - 1) {
+        nerString += ` ${ner.value} <NER_END> <INGREDIENTS_START>`;
+      } else {
+        nerString += ` ${ner.value} <NER_NEXT>`;
+      }
+    });
+
+    setIsLoading(true);
+
+    const output = await getPrediction(nerString);
+    const cleanOutput = extract_sections(output.prediction);
+    console.log(cleanOutput);
+
+    setOutput(cleanOutput);
+
+    setIsLoading(false);
   };
 
   return (
@@ -76,18 +101,23 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
         animate={isButtonInView ? 'bounce' : 'initial'}
         variants={buttonVariant}
       >
-        <Dialog.Root>
-          <Dialog.Trigger>
+        <ResultsModal
+          onClose={handleCloseModal}
+          title={output?.title}
+          ingredients={output?.ingredients}
+          instructions={output?.instructions}
+          loading={isLoading}
+        >
+          <button>
             <MainButton
               text="Generate"
               variant="secondary-outlined"
+              isDisabled={selectedNERs.length === 0}
               isButton={true}
               handleOnClick={handleGenerateButtonOnClick}
             />
-          </Dialog.Trigger>
-          {isModalOpen && <Dialog.Overlay />}
-          <ResultsModal onClose={handleCloseModal} />
-        </Dialog.Root>
+          </button>
+        </ResultsModal>
       </motion.div>
     </section>
   );

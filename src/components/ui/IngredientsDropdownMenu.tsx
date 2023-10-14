@@ -131,7 +131,7 @@ const IngredientsDropdownMenu: React.FC<IngredientsDropdownMenu> = ({
         onChange={onValuesChange}
         styles={customStyles}
         noOptionsMessage={customNoOptionsMessage}
-        className="basic-multi-select text-black"
+        className="basic-multi-select text-black capitalize"
         classNamePrefix="select"
       />
     </div>
