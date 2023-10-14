@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react';
 import type { MultiValue } from 'react-select';
+import * as Dialog from '@radix-ui/react-dialog';
 
 import { motion, useInView } from 'framer-motion';
 import type { NERType } from 'lib/types/nerType';
-
+import ResultsModal from '@/components/ui/ResultsModal';
 import IngredientsDropdownMenu from '@/components/ui/IngredientsDropdownMenu';
 import MainButton from '@/components/ui/MainButton';
 import { firstSlowFadeInVariants } from '@/animations/fadeIn';
@@ -23,6 +24,11 @@ const buttonVariant = {
 
 const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
   const [selectedNERs, setSelectedNERs] = useState<NERType[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   const buttonRef = useRef(null);
   const titleRef = useRef(null);
@@ -34,7 +40,7 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
   };
 
   const handleGenerateButtonOnClick = () => {
-    // handle selectedNERs here
+    setIsModalOpen(true);
   };
 
   return (
@@ -70,12 +76,18 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
         animate={isButtonInView ? 'bounce' : 'initial'}
         variants={buttonVariant}
       >
-        <MainButton
-          text="Generate"
-          variant="secondary-outlined"
-          isButton={true}
-          handleOnClick={handleGenerateButtonOnClick}
-        />
+        <Dialog.Root>
+          <Dialog.Trigger>
+            <MainButton
+              text="Generate"
+              variant="secondary-outlined"
+              isButton={true}
+              handleOnClick={handleGenerateButtonOnClick}
+            />
+          </Dialog.Trigger>
+          {isModalOpen && <Dialog.Overlay />}
+          <ResultsModal onClose={handleCloseModal} />
+        </Dialog.Root>
       </motion.div>
     </section>
   );
