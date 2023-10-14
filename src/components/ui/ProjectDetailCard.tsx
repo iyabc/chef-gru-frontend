@@ -3,8 +3,8 @@ import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import {
-  firstQuickHorizontalFromLeftFadeInVariants,
-  firstQuickVerticalFromRightFadeInVariants,
+  secondQuickHorizontalFromLeftFadeInVariants,
+  secondQuickVerticalFromRightFadeInVariants,
 } from '@/animations/fadeIn';
 
 type ProjectDetailCardProps = {
@@ -27,7 +27,7 @@ const ProjectDetailCard: React.FC<ProjectDetailCardProps> = ({
     <div className="grid justify-between items-center grid-cols-1 lg:grid-cols-2 text-background">
       <motion.div
         ref={textRef}
-        variants={firstQuickHorizontalFromLeftFadeInVariants}
+        variants={secondQuickHorizontalFromLeftFadeInVariants}
         initial="initial"
         animate={textInView && 'animate'}
         className="mb-9 lg:mr-16"
@@ -39,7 +39,7 @@ const ProjectDetailCard: React.FC<ProjectDetailCardProps> = ({
       </motion.div>
       <motion.div
         ref={imageRef}
-        variants={firstQuickVerticalFromRightFadeInVariants}
+        variants={secondQuickVerticalFromRightFadeInVariants}
         initial="initial"
         animate={imageInView && 'animate'}
         className="relative h-80 w-full"
