@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
-import Image from 'next/image';
+import Loading from '@/components/ui/Loading';
 
 import imgSrc from 'public/images/pan.gif';
 
@@ -24,36 +24,33 @@ const ResultsModal: React.FC<RecipeModalProps> = ({
 }) => {
   return (
     <Dialog.Root>
-      <Dialog.Trigger asChild>{children}</Dialog.Trigger>
+      <Dialog.Trigger asChild>
+        <div>{children}</div>
+      </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-[99]" />
-        <Dialog.Content className="fixed inset-0 flex items-center justify-center bg-background rounded-lg m-5 sm:m-10 md:m-10 lg:m-20 z-[100]">
+        <Dialog.Content className="fixed inset-0 flex flex-col items-center justify-center bg-background rounded-lg overflow-y-auto m-5 sm:m-10 md:m-10 lg:m-20 z-[100]">
+          <Dialog.Close>
+            <AiOutlineCloseCircle
+              onClick={onClose}
+              className="absolute top-0 right-0 inline-flex h-6 w-6 hover:-translate-y-0.5 transition duration-100 ease-out active:ease-in"
+              aria-label="Close"
+            />
+          </Dialog.Close>
           {loading ? (
-            <div className="flex flex-col items-center justify-center">
-              <p className="font-semibold text-sm sm:text-base lg:text-lg">
-                Generating your recipe...
-              </p>
-              <div className="relative w-40 h-40">
-                <Image
-                  src={imgSrc}
-                  alt="Pan Animation"
-                  className="object-contain w-full h-full"
-                  fill
-                />
-              </div>
-            </div>
+            <Loading imageSrc={imgSrc} text="Generating your recipe..." />
           ) : (
-            <div className="container flex flex-col items-center w-full max-w-[70rem] max-h-[50rem] my-16">
-              <div className="text-center mb-4">
+            <div className="container flex flex-col items-center h-full my-16">
+              <div className="flex flex-col text-center mb-4 w-full">
                 <p className="text-primary font-black text-xs sm:text-sm md:text-base lg:text-lg">
                   CHEF L-BERT
                 </p>
-                <h1 className="uppercase font-rightGroteskCompactBlack text-3xl sm:text-4xl lg:text-5xl">
+                <p className="uppercase break-words font-rightGroteskCompactBlack text-3xl sm:text-4xl lg:text-5xl">
                   {title}
-                </h1>
+                </p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                <div className="bg-accent p-5 overflow-y-auto h-60 sm:h-full">
+              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 w-full px-2">
+                <div className="bg-accent/90 rounded-md p-5">
                   <h2 className="uppercase font-rightGroteskCompactBlack text-xl sm:text-2xl mb-2">
                     Ingredients:
                   </h2>
@@ -65,7 +62,7 @@ const ResultsModal: React.FC<RecipeModalProps> = ({
                     </ul>
                   </div>
                 </div>
-                <div className="bg-accent p-5 overflow-y-auto h-60 sm:h-full">
+                <div className="bg-accent/90 rounded-md p-5">
                   <h2 className="uppercase font-rightGroteskCompactBlack text-xl sm:text-2xl mb-2">
                     Instructions:
                   </h2>
@@ -76,13 +73,6 @@ const ResultsModal: React.FC<RecipeModalProps> = ({
                   </ul>
                 </div>
               </div>
-              <Dialog.Close>
-                <AiOutlineCloseCircle
-                  onClick={onClose}
-                  className="absolute top-[1rem] right-[1rem] inline-flex h-[25px] w-[25px] hover:-translate-y-0.5 transition duration-100 ease-out active:ease-in"
-                  aria-label="Close"
-                />
-              </Dialog.Close>
             </div>
           )}
         </Dialog.Content>

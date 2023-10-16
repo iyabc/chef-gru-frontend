@@ -108,15 +108,13 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
           instructions={output?.instructions}
           loading={isLoading}
         >
-          <button>
-            <MainButton
-              text="Generate"
-              variant="secondary-outlined"
-              isDisabled={selectedNERs.length === 0}
-              isButton={true}
-              handleOnClick={handleGenerateButtonOnClick}
-            />
-          </button>
+          <MainButton
+            text="Generate"
+            variant="secondary-outlined"
+            isDisabled={selectedNERs.length === 0}
+            isButton={true}
+            handleOnClick={handleGenerateButtonOnClick}
+          />
         </ResultsModal>
       </motion.div>
     </section>
