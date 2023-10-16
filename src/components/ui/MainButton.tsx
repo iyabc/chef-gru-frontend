@@ -17,6 +17,9 @@ const buttonVariants = cva(
         true: 'hover:scale-95 duration-300 ease-in-out cursor-pointer',
         false: 'cursor-default uppercase',
       },
+      isDisabled: {
+        true: 'bg-primary grayscale',
+      },
     },
   }
 );
@@ -26,18 +29,21 @@ type ButtonProps = {
   text: string;
   variant: string;
   handleOnClick?: () => void;
+  isDisabled?: boolean;
 } & VariantProps<typeof buttonVariants>;
 
 const MainButton: FC<ButtonProps> = ({
   text,
   variant,
   isButton,
+  isDisabled,
   handleOnClick,
 }) => {
   return (
     <button
-      className={buttonVariants({ variant, isButton })}
+      className={buttonVariants({ variant, isButton, isDisabled })}
       onClick={handleOnClick}
+      disabled={isDisabled}
     >
       <p className="font-black text-xs sm:text-sm md:text-base lg:text-lg">
         {text}
