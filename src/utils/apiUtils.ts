@@ -3,9 +3,8 @@ const url = 'http://127.0.0.1:8080';
 export const getPrediction = async (nerList: string) => {
   try {
     console.log('Getting Prediction!!');
-    const response = await fetch(`${url}/prediction`, {
+    const response = await fetch(`${url}/api/prediction`, {
       method: 'POST',
-      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
       },
