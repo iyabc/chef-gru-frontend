@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef } from 'react';
-
 import HeroSection from '@/components/HomePage/HeroSection';
 import ModelSection from '@/components/HomePage/ModelSection';
 import NavigationBar from '@/components/ui/NavigationBar';

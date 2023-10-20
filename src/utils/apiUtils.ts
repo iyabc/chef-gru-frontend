@@ -1,9 +1,9 @@
-const url = 'http://127.0.0.1:8080';
+const url = 'https://chef-blstm-backend.onrender.com/api';
 
 export const getPrediction = async (nerList: string) => {
   try {
     console.log('Getting Prediction!!');
-    const response = await fetch(`${url}/post/prediction`, {
+    const response = await fetch(`${url}/prediction`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -13,6 +13,7 @@ export const getPrediction = async (nerList: string) => {
 
     if (response.ok) {
       const result = await response.json();
+      console.log(result);
       return result;
     } else {
       console.error('Failed to fetch data');

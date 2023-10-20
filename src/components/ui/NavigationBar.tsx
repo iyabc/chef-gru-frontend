@@ -17,7 +17,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ viewRef }) => {
   const inView = useInView(viewRef);
 
   return (
-    <motion.div
+    <motion.nav
       ref={viewRef}
       animate={inView ? 'visible' : 'hidden'}
       initial="hidden"
@@ -27,7 +27,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ viewRef }) => {
       <button className="relative w-16 h-16">
         <Image src={BERTLogo} alt="BERTLogo" className="object-contain" fill />
       </button>
-    </motion.div>
+    </motion.nav>
   );
 };
 
