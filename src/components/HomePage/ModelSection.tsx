@@ -33,6 +33,7 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setError] = useState(false);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -60,10 +61,14 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
     setIsLoading(true);
 
     const output = await getPrediction(nerString);
-    const cleanOutput = extract_sections(output.prediction);
-    console.log(cleanOutput);
 
-    setOutput(cleanOutput);
+    if (output.prediction) {
+      const cleanOutput = extract_sections(output.prediction);
+      setOutput(cleanOutput);
+      setError(false);
+    } else {
+      setError(true);
+    }
 
     setIsLoading(false);
   };
@@ -106,6 +111,7 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
           title={output?.title}
           ingredients={output?.ingredients}
           instructions={output?.instructions}
+          isError={isError}
           loading={isLoading}
         >
           <MainButton

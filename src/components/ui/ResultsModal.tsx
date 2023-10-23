@@ -11,6 +11,7 @@ type RecipeModalProps = {
   ingredients: string[];
   instructions: string[];
   loading: boolean;
+  isError: boolean;
   children: React.ReactNode;
 };
 
@@ -20,6 +21,7 @@ const ResultsModal: React.FC<RecipeModalProps> = ({
   ingredients,
   instructions,
   loading,
+  isError,
   children,
 }) => {
   return (
@@ -33,13 +35,13 @@ const ResultsModal: React.FC<RecipeModalProps> = ({
           <Dialog.Close>
             <AiOutlineCloseCircle
               onClick={onClose}
-              className="absolute top-0 right-0 inline-flex h-6 w-6 hover:-translate-y-0.5 transition duration-100 ease-out active:ease-in"
+              className="absolute top-0 right-0 m-1 inline-flex h-6 w-6 hover:-translate-y-0.5 transition duration-100 ease-out active:ease-in"
               aria-label="Close"
             />
           </Dialog.Close>
           {loading ? (
-            <Loading imageSrc={imgSrc} text="Generating your recipe..." />
-          ) : (
+            <Loading imageSrc={imgSrc} text="" />
+          ) : !isError ? (
             <div className="container flex flex-col items-center h-full my-16">
               <div className="flex flex-col text-center mb-4 w-full">
                 <p className="text-primary font-black text-xs sm:text-sm md:text-base lg:text-lg">
@@ -74,6 +76,10 @@ const ResultsModal: React.FC<RecipeModalProps> = ({
                 </div>
               </div>
             </div>
+          ) : (
+            <p className="font-semibold text-center">
+              Something went wrong, try again!
+            </p>
           )}
         </Dialog.Content>
       </Dialog.Portal>

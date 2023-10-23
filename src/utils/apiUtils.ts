@@ -13,12 +13,10 @@ export const getPrediction = async (nerList: string) => {
 
     if (response.ok) {
       const result = await response.json();
-      console.log(result);
       return result;
-    } else {
-      console.error('Failed to fetch data');
     }
   } catch (error) {
     console.error(error);
+    return error;
   }
 };
