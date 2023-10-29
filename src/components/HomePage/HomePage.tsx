@@ -8,7 +8,8 @@ import Divider from '@/components/ui/Divider';
 import DeveloperSection from '@/components/HomePage/DeveloperSection';
 import Footer from '@/components/ui/Footer';
 import ProjectDetailSection from '@/components/HomePage/ProjectDetailSection';
-import SectionUI from '../ui/SectionUI';
+import SectionUI from '@/components/ui/SectionUI';
+
 const HomePage = () => {
   const sectionsRef = useRef(null);
   const modelSectionRef = useRef<HTMLDivElement>(null);
