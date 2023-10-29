@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import type { MultiValue } from 'react-select';
-import { motion, useInView } from 'framer-motion';
+import { m, motion, useInView } from 'framer-motion';
 import type { NERType } from 'lib/types/nerType';
 import ResultsModal from '@/components/ui/ResultsModal';
 import IngredientsDropdownMenu from '@/components/ui/IngredientsDropdownMenu';
@@ -62,7 +62,7 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
 
     const output = await getPrediction(nerString);
 
-    if (output.prediction) {
+    if (output.prediction || output.ok) {
       const cleanOutput = extract_sections(output.prediction);
       setOutput(cleanOutput);
       setError(false);
