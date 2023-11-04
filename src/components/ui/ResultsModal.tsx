@@ -45,7 +45,7 @@ const ResultsModal: React.FC<RecipeModalProps> = ({
             <div className="container flex flex-col items-center h-full my-16">
               <div className="flex flex-col text-center mb-4 w-full">
                 <p className="text-primary font-black text-xs sm:text-sm md:text-base lg:text-lg">
-                  CHEF L-BERT
+                  Chef GRU
                 </p>
                 <p className="uppercase break-words font-rightGroteskCompactBlack text-3xl sm:text-4xl lg:text-5xl">
                   {title}

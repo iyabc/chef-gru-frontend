@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { motion } from 'framer-motion';
-import BERTLogo from 'public/images/BERT Logo.png';
+import GRULogo from 'public/images/GRU logo.png';
 
 import {
   firstQuickVerticalFadeInVariants,
@@ -35,9 +35,9 @@ const HeroSection: FC<HeroSectionProps> = ({ handleExploreButtonClick }) => {
           animate="animate"
         >
           <p className="text-sm sm:text-base">
-            Let <span className="font-bold">CHEF L-BERT</span> do the thinking!
-            Just input your ingredients and we&apos;ll try and provide you with
-            a recipe to follow.
+            Let <span className="font-bold uppercase">Chef GRU</span> do the
+            thinking! Just input your ingredients and we&apos;ll try and provide
+            you with a recipe to follow.
           </p>
         </motion.div>
 
@@ -62,8 +62,8 @@ const HeroSection: FC<HeroSectionProps> = ({ handleExploreButtonClick }) => {
         className="relative h-full w-full order-first lg:order-last"
       >
         <Image
-          src={BERTLogo}
-          alt="BERTLogo"
+          src={GRULogo}
+          alt="GRULogo"
           className="object-contain w-full h-full absolute"
           draggable={false}
           placeholder="blur"

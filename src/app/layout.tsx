@@ -5,9 +5,9 @@ import '@/styles/globals.css';
 import { inter, rightGroteskCompactBlack } from '@/styles/fonts';
 
 export const metadata: Metadata = {
-  title: 'Chef BLSTM',
+  title: 'Chef GRU',
   description:
-    'CHEF BLSTM is a recipe generation model that combines BLSTM and BERT tokenizer to generate novel food recipes from ingredients selected by the user.',
+    'CHEF GRU is a recipe generation model that combines Seq2Seq BiGRU Model and Byte-level BPE tokenizer to generate novel food recipes from ingredients selected by the user.',
 };
 
 export default function RootLayout({
