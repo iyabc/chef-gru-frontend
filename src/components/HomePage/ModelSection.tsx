@@ -49,21 +49,23 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
   };
 
   const handleGenerateButtonOnClick = async () => {
-    let nerString = '<RECIPE_START> <NER_START>';
+    let nerString = '[START]';
     selectedNERs.map((ner: NERType, index: number) => {
       if (index === selectedNERs.length - 1) {
-        nerString += ` ${ner.value} <NER_END> <INGREDIENTS_START>`;
+        nerString += ` ${ner.value} [END]`;
       } else {
-        nerString += ` ${ner.value} <NER_NEXT>`;
+        nerString += ` ${ner.value} [NER_NEXT]`;
       }
     });
 
     setIsLoading(true);
 
-    const output = await getPrediction(nerString);
+    const result = await getPrediction(nerString);
 
-    if (output.prediction || output.ok) {
-      const cleanOutput = extract_sections(output.prediction);
+    if (result.prediction || result.ok) {
+      const cleanOutput = extract_sections(result.prediction);
+      console.log('result: ', result);
+      console.log('cleanOutput: ', cleanOutput);
       setOutput(cleanOutput);
       setError(false);
     } else {
