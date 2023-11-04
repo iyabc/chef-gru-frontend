@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { motion, useInView } from 'framer-motion';
-import BERTLogo from 'public/images/BERT Logo.png';
+import GRULogo from 'public/images/GRU logo.png';
 
 type NavigationBarProps = {
   viewRef: React.RefObject<HTMLDivElement>;
@@ -25,7 +25,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ viewRef }) => {
       className="fixed top-0 w-full flex justify-center py-4 duration-300 ease-in-out z-50"
     >
       <button className="relative w-16 h-16">
-        <Image src={BERTLogo} alt="BERTLogo" className="object-contain" fill />
+        <Image src={GRULogo} alt="GRULogo" className="object-contain" fill />
       </button>
     </motion.nav>
   );

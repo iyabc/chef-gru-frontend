@@ -92,7 +92,7 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
         </h2>
         <p className="text-sm md:text-lg">
           Just select your ingredients and{' '}
-          <span className="font-bold">CHEF L-BERT</span> will try and generate a
+          <span className="font-bold">Chef GRU</span> will try and generate a
           recipe, just for you.
         </p>
       </motion.div>
