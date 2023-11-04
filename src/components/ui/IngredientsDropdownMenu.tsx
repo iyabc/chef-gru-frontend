@@ -3,10 +3,13 @@
 import React from 'react';
 import type { ActionMeta, MultiValue } from 'react-select';
 import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 import type { NERType } from 'lib/types/nerType';
 
-import { groupedOptions } from '@/data/nersData';
+import { ner_options } from '@/data/nersData';
+
+const animatedComponents = makeAnimated();
 
 const black: string = '#1E1E1E';
 const primary: string = '#F57E00';
@@ -101,11 +104,6 @@ const customStyles = {
       color: accent,
     },
   }),
-  groupHeading: (provided: any) => ({
-    ...provided,
-    color: 'grey',
-    borderBottom: '0.1rem solid grey',
-  }),
   multiValueLabel: (provided: any) => ({
     ...provided,
     color: black,
@@ -126,11 +124,12 @@ const IngredientsDropdownMenu: React.FC<IngredientsDropdownMenu> = ({
         isMulti
         name="NERs"
         placeholder="Select your ingredients"
-        options={groupedOptions}
+        options={ner_options}
         value={selectedValues}
         onChange={onValuesChange}
         styles={customStyles}
         noOptionsMessage={customNoOptionsMessage}
+        components={animatedComponents}
         className="basic-multi-select text-black capitalize"
         classNamePrefix="select"
       />
