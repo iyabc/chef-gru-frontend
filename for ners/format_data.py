@@ -1,7 +1,7 @@
 import json
 
 # Define the paths for input and output JSON files
-input_json_file = 'from_pickle.json'
+input_json_file = 'output.json'
 output_json_file = 'final_ners.json'
 
 # Read the input JSON file
