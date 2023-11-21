@@ -10,7 +10,7 @@ import Footer from '@/components/ui/Footer';
 import ProjectDetailSection from '@/components/HomePage/ProjectDetailSection';
 import SectionUI from '@/components/ui/SectionUI';
 import EvaluationForm from '@/components/ui/EvaluationForm';
-import EvaluationSection from '../ui/EvaluationSection';
+import EvaluationSection from './EvaluationSection';
 const HomePage = () => {
   const sectionsRef = useRef(null);
   const modelSectionRef = useRef<HTMLDivElement>(null);

@@ -1,23 +1,38 @@
 import React from 'react';
 import { useState } from 'react';
-const StarRating = () => {
-  const [rating, setRating] = useState(0);
+import { FaStar } from 'react-icons/fa';
+
+interface StarRatingProps {
+  value: number;
+  setValue: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const StarRating: React.FC<StarRatingProps> = ({ value, setValue }) => {
+  const [clicked, setClicked] = useState(false);
+
   return (
     <div className="star-rating">
-      {[...Array(5)].map((star, index) => {
+      {[...Array(5)].map((_, index) => {
         index += 1;
         return (
           <button
             type="button"
             key={index}
-            className={index <= rating ? 'on' : 'off'}
-            onClick={() => setRating(index)}
+            className={`text-3xl ${
+              index <= value ? 'text-primary' : 'text-background'
+            } hover:text-primary`}
+            onMouseEnter={() => !clicked && setValue(index)}
+            onClick={() => {
+              setValue(index);
+              setClicked(true);
+            }}
           >
-            <span className="star">&#9733;</span>
+            <FaStar />
           </button>
         );
       })}
     </div>
   );
 };
+
 export default StarRating;

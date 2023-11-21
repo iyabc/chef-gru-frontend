@@ -1,5 +1,6 @@
 import React from 'react';
 
+import RecipeSection from '@/components/HomePage/RecipeSection';
 import EvaluationForm from '@/components/ui/EvaluationForm';
 import MainButton from '@/components/ui/MainButton';
 import TitleHeader from '@/components/ui/TitleHeader';
@@ -14,7 +15,7 @@ const EvaluationSection = () => {
           isButton={false}
         />
       </TitleHeader>
-      <p> hello </p>
+      <RecipeSection />
       <EvaluationForm />
     </section>
   );

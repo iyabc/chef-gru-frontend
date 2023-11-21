@@ -9,6 +9,7 @@ import { firstSlowFadeInVariants } from '@/animations/fadeIn';
 import { getPrediction } from '@/utils/apiUtils';
 import { extract_sections } from '@/utils/textUtils';
 import { OutputType } from 'lib/types/outputType';
+// import { useHistory } from 'react-router-dom';
 
 const buttonVariant = {
   bounce: {
@@ -108,22 +109,13 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
         animate={isButtonInView ? 'bounce' : 'initial'}
         variants={buttonVariant}
       >
-        <ResultsModal
-          onClose={handleCloseModal}
-          title={output?.title}
-          ingredients={output?.ingredients}
-          instructions={output?.instructions}
-          isError={isError}
-          loading={isLoading}
-        >
-          <MainButton
-            text="Generate"
-            variant="secondary-outlined"
-            isDisabled={selectedNERs.length === 0}
-            isButton={true}
-            handleOnClick={handleGenerateButtonOnClick}
-          />
-        </ResultsModal>
+        <MainButton
+          text="Generate"
+          variant="secondary-outlined"
+          isDisabled={selectedNERs.length === 0}
+          isButton={true}
+          handleOnClick={handleGenerateButtonOnClick}
+        />
       </motion.div>
     </section>
   );
