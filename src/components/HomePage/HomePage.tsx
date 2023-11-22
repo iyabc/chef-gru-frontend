@@ -38,7 +38,6 @@ const HomePage = () => {
           color="Black"
         />
         <ProjectDetailSection />
-        <EvaluationSection />
         <DeveloperSection />
       </div>
       <Footer />

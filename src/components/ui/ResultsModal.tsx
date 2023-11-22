@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import Loading from '@/components/ui/Loading';
 
 import imgSrc from 'public/images/pan.gif';
+import MainButton from './MainButton';
+import Link from 'next/link';
 
 type RecipeModalProps = {
   onClose: () => void;
@@ -51,11 +53,11 @@ const ResultsModal: React.FC<RecipeModalProps> = ({
                   {title}
                 </p>
               </div>
-              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 w-full px-2">
+              <div className="flex-1 grid grid-cols-1 gap-4 w-full px-2">
                 <div className="bg-accent/90 rounded-md p-5">
-                  <h2 className="uppercase font-rightGroteskCompactBlack text-xl sm:text-2xl mb-2">
+                  <p className="uppercase font-rightGroteskCompactBlack text-xl sm:text-2xl mb-2">
                     Ingredients:
-                  </h2>
+                  </p>
                   <div>
                     <ul className="ml-5 list-disc">
                       {ingredients?.map((ingredient: string, index: number) => (
@@ -65,15 +67,24 @@ const ResultsModal: React.FC<RecipeModalProps> = ({
                   </div>
                 </div>
                 <div className="bg-accent/90 rounded-md p-5">
-                  <h2 className="uppercase font-rightGroteskCompactBlack text-xl sm:text-2xl mb-2">
+                  <p className="uppercase font-rightGroteskCompactBlack text-xl sm:text-2xl mb-2">
                     Instructions:
-                  </h2>
+                  </p>
                   <ul className="ml-5 list-decimal">
                     {instructions?.map((instruction: string, index: number) => (
                       <li key={index}>{instruction}</li>
                     ))}
                   </ul>
                 </div>
+              </div>
+              <div className="d-flex justify-end pt-8">
+                <Link href="/evaluation">
+                  <MainButton
+                    isButton={true}
+                    text={'Rate the recipe'}
+                    variant={'secondary-outlined'}
+                  />
+                </Link>
               </div>
             </div>
           ) : (
