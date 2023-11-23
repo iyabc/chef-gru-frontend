@@ -1,7 +1,13 @@
+'use client';
+
 import type { Metadata } from 'next';
+
+import * as Toast from '@radix-ui/react-toast';
 
 import '@/styles/globals.css';
 
+import { InputOutputProvider } from '@/contexts/InputOutputContext';
+import { RecipeProvider } from '@/contexts/RecipeContext';
 import { inter, rightGroteskCompactBlack } from '@/styles/fonts';
 
 export const metadata: Metadata = {
@@ -21,7 +27,11 @@ export default function RootLayout({
       className={`${inter.variable} ${rightGroteskCompactBlack.variable}`}
     >
       <body className={`${inter.className} text-black bg-background`}>
-        {children}
+        <Toast.Provider swipeDirection="right">
+          <RecipeProvider>
+            <InputOutputProvider>{children}</InputOutputProvider>
+          </RecipeProvider>
+        </Toast.Provider>
       </body>
     </html>
   );

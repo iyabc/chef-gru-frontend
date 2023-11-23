@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import type { MultiValue } from 'react-select';
-import { m, motion, useInView } from 'framer-motion';
+import { checkTargetForNewValues, m, motion, useInView } from 'framer-motion';
 import type { NERType } from 'lib/types/nerType';
 import ResultsModal from '@/components/ui/ResultsModal';
 import IngredientsDropdownMenu from '@/components/ui/IngredientsDropdownMenu';
@@ -8,7 +8,9 @@ import MainButton from '@/components/ui/MainButton';
 import { firstSlowFadeInVariants } from '@/animations/fadeIn';
 import { getPrediction } from '@/utils/apiUtils';
 import { extract_sections } from '@/utils/textUtils';
-import { OutputType } from 'lib/types/outputType';
+import { useRecipe } from '@/contexts/RecipeContext';
+import { useInputOutput } from '@/contexts/InputOutputContext';
+import { InputOutputType } from 'lib/types/inputOutputType';
 
 const buttonVariant = {
   bounce: {
@@ -23,14 +25,26 @@ const buttonVariant = {
   },
 };
 
+const formatInput = (inputString: string) => {
+  const match = inputString.match(/\[START\](.*?)\[END\]/);
+  let items: string = '';
+
+  if (match) {
+    const content = match[1];
+
+    items = content
+      .split(/\[NER_NEXT\]/)
+      .map((item) => item.trim())
+      .toString();
+  }
+
+  return items;
+};
+
 const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
   const [selectedNERs, setSelectedNERs] = useState<NERType[]>([]);
-  const [output, setOutput] = useState<OutputType>({
-    title: '',
-    ingredients: [''],
-    instructions: [''],
-    ner_tags: [''],
-  });
+  const { output, changeOutput } = useRecipe();
+  const { inputOutput, changeInputOutput } = useInputOutput();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setError] = useState(false);
@@ -48,7 +62,7 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
     setSelectedNERs(selectedValues as NERType[]);
   };
 
-  const handleGenerateButtonOnClick = async () => {
+  const handleGenerateButtonOnClick: any = async () => {
     let nerString = '[START]';
     selectedNERs.map((ner: NERType, index: number) => {
       if (index === selectedNERs.length - 1) {
@@ -66,7 +80,20 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
       const cleanOutput = extract_sections(result.prediction);
       console.log('result: ', result);
       console.log('cleanOutput: ', cleanOutput);
-      setOutput(cleanOutput);
+
+      const cleanOutputString = JSON.stringify(cleanOutput);
+
+      const inputOutputData: InputOutputType = {
+        input: formatInput(nerString),
+        output: cleanOutputString,
+      };
+
+      console.log('inputOutput: ', inputOutputData);
+
+      changeOutput(cleanOutput);
+      changeInputOutput(inputOutputData);
+
+      console.log('after change inputOutput: ', inputOutput);
       setError(false);
     } else {
       setError(true);
@@ -119,7 +146,7 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
           <MainButton
             text="Generate"
             variant="secondary-outlined"
-            isDisabled={selectedNERs.length === 0}
+            isDisabled={selectedNERs.length < 3}
             isButton={true}
             handleOnClick={handleGenerateButtonOnClick}
           />

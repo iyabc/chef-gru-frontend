@@ -1,0 +1,2 @@
+- cleaning.py (choose wether CSV or JSON)
+- if json, format_data.py
