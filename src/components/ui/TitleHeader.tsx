@@ -40,7 +40,7 @@ const TitleHeader: React.FC<TitleHeaderProps> = ({
         variants={firstQuickVerticalFadeInVariants}
         initial="initial"
         animate={titleButtonInView && 'animate'}
-        className="mb-2 lg:mb-1"
+        className="mb-3 lg:mb-6"
       >
         {children}
       </motion.div>
@@ -49,7 +49,7 @@ const TitleHeader: React.FC<TitleHeaderProps> = ({
         variants={secondQuickVerticalFadeInVariants}
         initial="initial"
         animate={subtitleButtonInView && 'animate'}
-        className="font-rightGroteskCompactBlack uppercase text-4xl xsm:text-5xl sm:text-6xl lg:text-8xl"
+        className="font-rightGroteskCompactBlack uppercase mb-5 text-2xl xsm:text-3xl lg:text-4xl"
       >
         {text}
       </motion.p>

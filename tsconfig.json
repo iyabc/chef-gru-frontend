@@ -30,6 +30,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/stories/*"
-  ],
+, "src/contexts/RecipeContext.jsx"  ],
   "exclude": ["node_modules"]
 }
