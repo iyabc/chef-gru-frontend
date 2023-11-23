@@ -1,6 +1,6 @@
 'use client';
 
-import type { Metadata } from 'next';
+// import type { Metadata } from 'next';
 
 import * as Toast from '@radix-ui/react-toast';
 
@@ -10,11 +10,11 @@ import { InputOutputProvider } from '@/contexts/InputOutputContext';
 import { RecipeProvider } from '@/contexts/RecipeContext';
 import { inter, rightGroteskCompactBlack } from '@/styles/fonts';
 
-export const metadata: Metadata = {
-  title: 'Chef GRU',
-  description:
-    'CHEF GRU is a recipe generation model that combines Seq2Seq BiGRU Model and Byte-level BPE tokenizer to generate novel food recipes from ingredients selected by the user.',
-};
+// export const metadata: Metadata = {
+//   title: 'Chef GRU',
+//   description:
+//     'CHEF GRU is a recipe generation model that combines Seq2Seq BiGRU Model and Byte-level BPE tokenizer to generate novel food recipes from ingredients selected by the user.',
+// };
 
 export default function RootLayout({
   children,
