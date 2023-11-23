@@ -8,8 +8,9 @@ import type { OutputType } from 'lib/types/outputType';
 import EvaluationPage from '@/components/EvaluationPage/EvaluationPage';
 import { useRecipe } from '@/contexts/RecipeContext';
 import { useInputOutput } from '@/contexts/InputOutputContext';
+import { InputOutputType } from 'lib/types/inputOutputType';
 
-const defaultOutput: OutputType = {
+const testOutput: OutputType = {
   title: 'TAHINI DIP',
   ingredients: [
     '1 teaspoon vanilla extract',
@@ -25,12 +26,15 @@ const defaultOutput: OutputType = {
   ner_tags: [''],
 };
 
+const testInputOutput: InputOutputType = {
+  input: 'insert input here',
+  output: 'insert output here',
+};
+
 const page = () => {
   const { output } = useRecipe();
   const { inputOutput } = useInputOutput();
   const router = useRouter();
-
-  console.log(inputOutput);
 
   useEffect(() => {
     if (
