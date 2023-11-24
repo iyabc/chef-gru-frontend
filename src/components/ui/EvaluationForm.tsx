@@ -52,6 +52,7 @@ const EvaluationForm: React.FC<PassingOutputType> = ({ inputOutput }) => {
 
   const [toastMessage, setToastMessage] = useState('');
   const [openToast, setOpenToast] = useState(false);
+  const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
 
   const [errorInput, setErrorInput] = useState(false);
 
@@ -99,6 +100,7 @@ const EvaluationForm: React.FC<PassingOutputType> = ({ inputOutput }) => {
         setToastMessage('Submission successful! Thank you for your feedback.');
         setOpenToast(true);
 
+        setIsSubmitSuccess(true);
         setTimeout(() => {
           router.push('/');
         }, 3000);
@@ -190,6 +192,7 @@ const EvaluationForm: React.FC<PassingOutputType> = ({ inputOutput }) => {
       <MainButton
         text="SUBMIT"
         variant="primary-outlined"
+        isDisabled={isSubmitSuccess}
         isButton={true}
         handleOnClick={handleSubmit}
       />
