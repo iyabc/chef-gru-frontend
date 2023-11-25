@@ -47,7 +47,7 @@ const customStyles = {
   }),
   valueContainer: (provided: any) => ({
     ...provided,
-    maxHeight: '2rem',
+    maxHeight: '2.3rem',
     overflow: 'auto',
     scroll: {},
   }),

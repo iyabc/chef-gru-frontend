@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import type { MultiValue } from 'react-select';
-import { checkTargetForNewValues, m, motion, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import type { NERType } from 'lib/types/nerType';
 import ResultsModal from '@/components/ui/ResultsModal';
 import IngredientsDropdownMenu from '@/components/ui/IngredientsDropdownMenu';
@@ -118,7 +118,7 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
           Give it a try!
         </h2>
         <p className="text-sm md:text-lg">
-          Just select your ingredients and{' '}
+          Just select <span className="font-bold">3-8</span> ingredients and{' '}
           <span className="font-bold">Chef GRU</span> will try and generate a
           recipe, just for you.
         </p>
@@ -146,7 +146,7 @@ const ModelSection = React.forwardRef<HTMLDivElement>((props, ref) => {
           <MainButton
             text="Generate"
             variant="secondary-outlined"
-            isDisabled={selectedNERs.length < 3}
+            isDisabled={selectedNERs.length < 3 || selectedNERs.length > 8}
             isButton={true}
             handleOnClick={handleGenerateButtonOnClick}
           />
