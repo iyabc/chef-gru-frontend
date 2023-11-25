@@ -1,6 +1,7 @@
 import { EvaluatorType } from 'lib/types/evaluatorType';
 
 const url = process.env.API_KEY;
+console.log(url);
 
 export const getPrediction = async (nerList: string) => {
   try {
