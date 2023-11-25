@@ -1,5 +1,6 @@
 export type EvaluatorType = {
   clarity_rating: number;
+  comments: string;
   contact_number: string;
   creativity_rating: number;
   doability_rating: number;

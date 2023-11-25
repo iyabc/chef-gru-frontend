@@ -64,6 +64,7 @@ const EvaluationForm: React.FC<PassingOutputType> = ({ inputOutput }) => {
   const [doabilityRating, setDoabilityRating] = useState(0);
   const [likelihoodToTryRating, setLikelihoodToTryRating] = useState(0);
   const [overallQualityRating, setOverallQualityRating] = useState(0);
+  const [comments, setComments] = useState('');
 
   const handleContactNumberChange = (event: {
     target: { value: React.SetStateAction<string> };
@@ -92,6 +93,7 @@ const EvaluationForm: React.FC<PassingOutputType> = ({ inputOutput }) => {
         doability_rating: doabilityRating,
         likelihood_to_try_rating: likelihoodToTryRating,
         overall_rating: overallQualityRating,
+        comments: comments,
       };
 
       const result = await getEvaluation(data);
@@ -128,7 +130,7 @@ const EvaluationForm: React.FC<PassingOutputType> = ({ inputOutput }) => {
           type="number"
           id="first_name"
           className="bg-background text-sm text-black rounded-lg focus:ring-2 focus:ring-primary focus:primary block w-full p-2.5"
-          placeholder="Contact Number"
+          placeholder="Contact Number (Optional)"
           value={contactNumber}
           onChange={handleContactNumberChange}
         />
@@ -145,7 +147,7 @@ const EvaluationForm: React.FC<PassingOutputType> = ({ inputOutput }) => {
       </div>
 
       <p className="text-center w-full lg:w-3/5 text-sm sm:text-base">
-        On a scale of <span className="text-primary">1 to 5</span>, with 1 being
+        On a scale of <span className="text-primary">0 to 5</span>, with 1 being
         the lowest and 5 being the highest:
       </p>
 
@@ -188,6 +190,14 @@ const EvaluationForm: React.FC<PassingOutputType> = ({ inputOutput }) => {
           </div>
         ))}
       </div>
+
+      <textarea
+        id="comments"
+        name="comments"
+        placeholder="Leave comments here.(Optional)"
+        className="p-3 text-black bg-white border-2 border-accent rounded-lg"
+        onChange={(event) => setComments(event.target.value)}
+      ></textarea>
 
       <MainButton
         text="SUBMIT"
