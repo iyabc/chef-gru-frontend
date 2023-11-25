@@ -129,7 +129,7 @@ const EvaluationForm: React.FC<PassingOutputType> = ({ inputOutput }) => {
         <input
           type="number"
           id="first_name"
-          className="bg-background text-sm text-black rounded-lg focus:ring-2 focus:ring-primary focus:primary block w-full p-2.5"
+          className="bg-background text-sm text-black rounded-lg focus:ring-2 focus:ring-primary focus:primary block w-full p-2.5 font-light"
           placeholder="Contact Number (Optional)"
           value={contactNumber}
           onChange={handleContactNumberChange}
@@ -139,7 +139,7 @@ const EvaluationForm: React.FC<PassingOutputType> = ({ inputOutput }) => {
           type="number"
           className={`${
             errorInput ? 'ring-[#e43838] bg-[#c031316b]' : 'bg-background'
-          } bg-background text-sm text-black rounded-lg focus:ring-2 focus:ring-primary focus:primary block w-full p-2.5`}
+          } bg-background text-sm text-black rounded-lg focus:ring-2 focus:ring-primary focus:primary block w-full p-2.5 font-light`}
           placeholder="Years of Cooking"
           value={cookingYears}
           onChange={handleCookingYearsChange}
@@ -195,7 +195,7 @@ const EvaluationForm: React.FC<PassingOutputType> = ({ inputOutput }) => {
         id="comments"
         name="comments"
         placeholder="Leave comments here.(Optional)"
-        className="p-3 text-black bg-white border-2 border-accent rounded-lg"
+        className="p-3 text-black bg-white border-2 border-accent rounded-lg w-full font-light"
         onChange={(event) => setComments(event.target.value)}
       ></textarea>
 
