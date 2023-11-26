@@ -26,10 +26,11 @@ const HomePage = () => {
         <HeroSection handleExploreButtonClick={scrollToModelSection} />
       </SectionUI>
       <Divider
-        title="GENERATE NOVEL RECIPES WITH THE TOUCH OF YOUR HAND"
-        text="Elevate your cooking game with novel recipes at your fingertips! Harness the power of artificial intelligence to craft unique dishes tailored to your taste buds. Experience a revolution in recipe reneration!"
+        title="Who is Chef GRU?"
+        text="Chef GRU is a sequence-to-sequence BiGRU model featuring an attention mechanism. This study delves into the intricacies of recipe generation tasks on RNN-based neural networks, specifically LSTM and BiGRU, aiming to elevate your culinary journey and revolutionize recipe creation!"
         color="Yellow"
       />
+
       <div ref={sectionsRef}>
         <ModelSection ref={modelSectionRef} />
         <Divider
